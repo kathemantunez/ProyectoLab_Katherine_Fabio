@@ -25,6 +25,11 @@ public class principal_proyectolab extends javax.swing.JFrame {
      */
     public principal_proyectolab() {
         initComponents();
+        m_usuario_candidato.setEnabled(false);
+        m_usuario_comun.setEnabled(false);
+        mi_logout.setEnabled(false);
+        mi_login.setEnabled(false);
+        
         
     }
 
@@ -77,15 +82,22 @@ public class principal_proyectolab extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         ta_archivo_c1 = new javax.swing.JTextArea();
         menu_Usuario_Comun = new javax.swing.JDialog();
+        login = new javax.swing.JDialog();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        iniciar_sesion = new javax.swing.JButton();
+        tf_contraseña = new javax.swing.JPasswordField();
+        tf_usuario = new javax.swing.JTextField();
         imagen_principal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        mi_login = new javax.swing.JMenuItem();
+        mi_logout = new javax.swing.JMenuItem();
+        m_usuario_comun = new javax.swing.JMenu();
+        m_usuario_candidato = new javax.swing.JMenu();
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel10.setText("Usuario Candidato");
@@ -347,6 +359,49 @@ public class principal_proyectolab extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jLabel17.setText("Usuario");
+
+        jLabel18.setText("Contraseña");
+
+        iniciar_sesion.setText("Iniciar Sesión");
+        iniciar_sesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iniciar_sesionMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout loginLayout = new javax.swing.GroupLayout(login.getContentPane());
+        login.getContentPane().setLayout(loginLayout);
+        loginLayout.setHorizontalGroup(
+            loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel17))
+                .addGap(54, 54, 54)
+                .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(iniciar_sesion)
+                    .addComponent(tf_contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                    .addComponent(tf_usuario))
+                .addContainerGap(188, Short.MAX_VALUE))
+        );
+        loginLayout.setVerticalGroup(
+            loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel17)
+                    .addComponent(tf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(tf_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(93, 93, 93)
+                .addComponent(iniciar_sesion)
+                .addContainerGap(122, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -375,21 +430,34 @@ public class principal_proyectolab extends javax.swing.JFrame {
 
         jMenu1.add(jMenu4);
 
-        jMenuItem4.setText("Login");
-        jMenu1.add(jMenuItem4);
+        mi_login.setText("Login");
+        mi_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_loginActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mi_login);
+
+        mi_logout.setText("logout");
+        mi_logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_logoutActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mi_logout);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Usuario Común");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        m_usuario_comun.setText("Usuario Común");
+        m_usuario_comun.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
+                m_usuario_comunMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(m_usuario_comun);
 
-        jMenu3.setText("Usuario Candidato");
-        jMenuBar1.add(jMenu3);
+        m_usuario_candidato.setText("Usuario Candidato");
+        jMenuBar1.add(m_usuario_candidato);
 
         setJMenuBar(jMenuBar1);
 
@@ -421,7 +489,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
             this.usuario.add(new Usuario_Candidato(nombre, usuario, contraseña, fecha, correo, sexo, nombre));
 
             JOptionPane.showMessageDialog(jd_UsuarioCandidato, "usuario candidato registrado exitosamente");
-
+            mi_login.setEnabled(true);
            
 
             tf_usuario_c2.setText("");
@@ -493,6 +561,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
         
         
         JOptionPane.showMessageDialog(jd_UsuarioComun, "Usuario comun registrado exitosamente");
+        mi_login.setEnabled(true);
         tf_usuario_c1.setText("");
             tf_contraseña_c1.setText("");
             tf_nombre_c1.setText("");
@@ -528,13 +597,62 @@ public class principal_proyectolab extends javax.swing.JFrame {
         jd_UsuarioCandidato.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+    private void m_usuario_comunMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_usuario_comunMouseClicked
         // TODO add your handling code here:
          menu_Usuario_Comun.setModal(true);
         menu_Usuario_Comun.pack();
         menu_Usuario_Comun.setLocationRelativeTo(this);
         menu_Usuario_Comun.setVisible(true);
-    }//GEN-LAST:event_jMenu2MouseClicked
+    }//GEN-LAST:event_m_usuario_comunMouseClicked
+
+    private void mi_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_loginActionPerformed
+        // TODO add your handling code here:
+          login.setModal(true);
+        login.pack();
+        login.setLocationRelativeTo(this);
+        login.setVisible(true);
+    }//GEN-LAST:event_mi_loginActionPerformed
+
+    private void iniciar_sesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciar_sesionMouseClicked
+        for (int i = 0; i < usuario.size(); i++) {
+            if(usuario.get(i).getNombre_usuario().equals(tf_usuario.getText())&&
+                    usuario.get(i).getContraseña().equals(tf_contraseña.getText())){
+                if(usuario.get(i)instanceof Usuario_comun){
+                    usuario_comun_actual=(Usuario_comun)usuario.get(i);
+                    m_usuario_comun.setEnabled(true);
+                    mi_logout.setEnabled(true);
+                    
+                    tf_usuario.setText("");
+                    tf_contraseña.setText("");
+                    login.setVisible(false);
+                    
+                }
+                if(usuario.get(i)instanceof Usuario_Candidato){
+                    usuario_candidato_actual=(Usuario_Candidato)usuario.get(i);
+                    m_usuario_candidato.setEnabled(true);
+                    mi_logout.setEnabled(true);
+                    
+                    tf_usuario.setText("");
+                    tf_contraseña.setText("");
+                    login.setVisible(false);
+                    
+                    
+                }
+                
+            }else{
+                JOptionPane.showMessageDialog(login, "usuario o contraseña no coinciden");
+            }
+            
+        }
+        
+        
+    }//GEN-LAST:event_iniciar_sesionMouseClicked
+
+    private void mi_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_logoutActionPerformed
+        // TODO add your handling code here:
+        m_usuario_candidato.setEnabled(false);
+        m_usuario_comun.setEnabled(false);
+    }//GEN-LAST:event_mi_logoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -576,6 +694,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JButton ag_usuario_candidato;
     private javax.swing.JButton ag_usuario_comun;
     private javax.swing.JLabel imagen_principal;
+    private javax.swing.JButton iniciar_sesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -584,6 +703,8 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -593,25 +714,28 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDialog jd_UsuarioCandidato;
     private javax.swing.JDialog jd_UsuarioComun;
     private javax.swing.JSpinner js_fecha_c1;
     private javax.swing.JSpinner js_fecha_c2;
+    private javax.swing.JDialog login;
+    private javax.swing.JMenu m_usuario_candidato;
+    private javax.swing.JMenu m_usuario_comun;
     private javax.swing.JDialog menu_Usuario_Comun;
+    private javax.swing.JMenuItem mi_login;
+    private javax.swing.JMenuItem mi_logout;
     private javax.swing.JRadioButton rb_femenino_c1;
     private javax.swing.JRadioButton rb_femenino_c2;
     private javax.swing.JRadioButton rb_masculino_c1;
     private javax.swing.JRadioButton rb_masculino_c2;
     private javax.swing.ButtonGroup sexo2;
     private javax.swing.JTextArea ta_archivo_c1;
+    private javax.swing.JPasswordField tf_contraseña;
     private javax.swing.JPasswordField tf_contraseña_c1;
     private javax.swing.JPasswordField tf_contraseña_c2;
     private javax.swing.JTextField tf_correo_c1;
@@ -619,10 +743,14 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JTextField tf_direccion_c1;
     private javax.swing.JTextField tf_nombre_c1;
     private javax.swing.JTextField tf_nombre_c2;
+    private javax.swing.JTextField tf_usuario;
     private javax.swing.JTextField tf_usuario_c1;
     private javax.swing.JTextField tf_usuario_c2;
     // End of variables declaration//GEN-END:variables
 ArrayList<Usuario> usuario=new ArrayList();
+Usuario_comun usuario_comun_actual;
+Usuario_Candidato usuario_candidato_actual;
+
 
 
     
