@@ -7,6 +7,7 @@ package proyectolab_katherine_fabio;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -20,12 +21,14 @@ public class Usuario_comun extends Usuario{
     private ArrayList<Amigos> amigos=new ArrayList();
     private String name2;
 
-    public Usuario_comun(String direccion, File Archivo, String name2, String nombre_usuario, String contraseña, String fecha_nacimiento, String correo, String sexo, String nombre) {
+    public Usuario_comun(String direccion, File Archivo, String name2, String nombre_usuario, String contraseña, Date fecha_nacimiento, String correo, String sexo, String nombre) {
         super(nombre_usuario, contraseña, fecha_nacimiento, correo, sexo, nombre);
         this.direccion = direccion;
         this.Archivo = Archivo;
         this.name2 = name2;
     }
+
+    
 
     public String getName2() {
         return name2;

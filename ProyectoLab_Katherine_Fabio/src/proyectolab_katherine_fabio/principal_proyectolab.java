@@ -5,6 +5,15 @@
  */
 package proyectolab_katherine_fabio;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author KATHERINE
@@ -16,6 +25,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
      */
     public principal_proyectolab() {
         initComponents();
+        
     }
 
     /**
@@ -27,6 +37,8 @@ public class principal_proyectolab extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        sexo2 = new javax.swing.ButtonGroup();
+        Sexo = new javax.swing.ButtonGroup();
         jd_UsuarioCandidato = new javax.swing.JDialog();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -42,9 +54,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
         tf_nombre_c2 = new javax.swing.JTextField();
         tf_correo_c2 = new javax.swing.JTextField();
         tf_contraseña_c2 = new javax.swing.JPasswordField();
-        jTextField5 = new javax.swing.JTextField();
-        Sexo = new javax.swing.ButtonGroup();
-        sexo2 = new javax.swing.ButtonGroup();
+        js_fecha_c2 = new javax.swing.JSpinner();
         jd_UsuarioComun = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -59,11 +69,15 @@ public class principal_proyectolab extends javax.swing.JFrame {
         tf_nombre_c1 = new javax.swing.JTextField();
         tf_correo_c1 = new javax.swing.JTextField();
         tf_direccion_c1 = new javax.swing.JTextField();
-        tf_archivo_c1 = new javax.swing.JTextField();
         rb_femenino_c1 = new javax.swing.JRadioButton();
         rb_masculino_c1 = new javax.swing.JRadioButton();
         ag_usuario_comun = new javax.swing.JButton();
         tf_contraseña_c1 = new javax.swing.JPasswordField();
+        js_fecha_c1 = new javax.swing.JSpinner();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ta_archivo_c1 = new javax.swing.JTextArea();
+        menu_Usuario_Comun = new javax.swing.JDialog();
+        imagen_principal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
@@ -100,33 +114,15 @@ public class principal_proyectolab extends javax.swing.JFrame {
                 ag_usuario_candidatoMouseClicked(evt);
             }
         });
-        ag_usuario_candidato.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ag_usuario_candidatoActionPerformed(evt);
-            }
-        });
 
+        sexo2.add(rb_femenino_c2);
         rb_femenino_c2.setText("F");
-        rb_femenino_c2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rb_femenino_c2ActionPerformed(evt);
-            }
-        });
 
+        sexo2.add(rb_masculino_c2);
         rb_masculino_c2.setSelected(true);
         rb_masculino_c2.setText("M");
 
-        tf_nombre_c2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_nombre_c2ActionPerformed(evt);
-            }
-        });
-
-        tf_correo_c2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_correo_c2ActionPerformed(evt);
-            }
-        });
+        js_fecha_c2.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(915227160000L), null, new java.util.Date(946763160000L), java.util.Calendar.DAY_OF_YEAR));
 
         javax.swing.GroupLayout jd_UsuarioCandidatoLayout = new javax.swing.GroupLayout(jd_UsuarioCandidato.getContentPane());
         jd_UsuarioCandidato.getContentPane().setLayout(jd_UsuarioCandidatoLayout);
@@ -153,10 +149,12 @@ public class principal_proyectolab extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addComponent(jLabel16))
                 .addGap(18, 18, 18)
-                .addGroup(jd_UsuarioCandidatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tf_correo_c2, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                    .addComponent(tf_contraseña_c2))
-                .addGap(141, 141, 141))
+                .addGroup(jd_UsuarioCandidatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_UsuarioCandidatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(tf_correo_c2, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                        .addComponent(tf_contraseña_c2))
+                    .addComponent(js_fecha_c2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46))
             .addGroup(jd_UsuarioCandidatoLayout.createSequentialGroup()
                 .addGroup(jd_UsuarioCandidatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_UsuarioCandidatoLayout.createSequentialGroup()
@@ -195,7 +193,8 @@ public class principal_proyectolab extends javax.swing.JFrame {
                     .addComponent(jLabel15)
                     .addComponent(jLabel16)
                     .addComponent(rb_femenino_c2)
-                    .addComponent(rb_masculino_c2))
+                    .addComponent(rb_masculino_c2)
+                    .addComponent(js_fecha_c2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(ag_usuario_candidato, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(102, 102, 102))
@@ -220,20 +219,10 @@ public class principal_proyectolab extends javax.swing.JFrame {
 
         jLabel9.setText("Archivo de texto");
 
-        tf_correo_c1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_correo_c1ActionPerformed(evt);
-            }
-        });
-
-        tf_archivo_c1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_archivo_c1ActionPerformed(evt);
-            }
-        });
-
+        Sexo.add(rb_femenino_c1);
         rb_femenino_c1.setText("F");
 
+        Sexo.add(rb_masculino_c1);
         rb_masculino_c1.setSelected(true);
         rb_masculino_c1.setText("M");
 
@@ -243,6 +232,12 @@ public class principal_proyectolab extends javax.swing.JFrame {
                 ag_usuario_comunMouseClicked(evt);
             }
         });
+
+        js_fecha_c1.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(915227160000L), null, new java.util.Date(946763160000L), java.util.Calendar.DAY_OF_YEAR));
+
+        ta_archivo_c1.setColumns(20);
+        ta_archivo_c1.setRows(5);
+        jScrollPane1.setViewportView(ta_archivo_c1);
 
         javax.swing.GroupLayout jd_UsuarioComunLayout = new javax.swing.GroupLayout(jd_UsuarioComun.getContentPane());
         jd_UsuarioComun.getContentPane().setLayout(jd_UsuarioComunLayout);
@@ -283,54 +278,80 @@ public class principal_proyectolab extends javax.swing.JFrame {
                                 .addGroup(jd_UsuarioComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel9))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                                .addComponent(tf_archivo_c1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                                .addGroup(jd_UsuarioComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_UsuarioComunLayout.createSequentialGroup()
+                                        .addComponent(js_fecha_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(23, 23, 23))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_UsuarioComunLayout.createSequentialGroup()
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(109, 109, 109))))))
                     .addGroup(jd_UsuarioComunLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)
                         .addGap(273, 273, 273)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_UsuarioComunLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jd_UsuarioComunLayout.createSequentialGroup()
+                .addGap(396, 396, 396)
                 .addComponent(ag_usuario_comun, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(356, 356, 356))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jd_UsuarioComunLayout.setVerticalGroup(
             jd_UsuarioComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_UsuarioComunLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addGap(29, 29, 29)
-                .addGroup(jd_UsuarioComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(tf_usuario_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_contraseña_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addGroup(jd_UsuarioComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel5)
-                    .addComponent(tf_nombre_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_correo_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addGroup(jd_UsuarioComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel4)
-                    .addComponent(rb_femenino_c1)
-                    .addComponent(rb_masculino_c1))
-                .addGap(39, 39, 39)
-                .addGroup(jd_UsuarioComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(tf_direccion_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_archivo_c1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(jd_UsuarioComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_UsuarioComunLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1)
+                        .addGap(29, 29, 29)
+                        .addGroup(jd_UsuarioComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(tf_usuario_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_contraseña_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49)
+                        .addGroup(jd_UsuarioComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel5)
+                            .addComponent(tf_nombre_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_correo_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addGroup(jd_UsuarioComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel4)
+                            .addComponent(rb_femenino_c1)
+                            .addComponent(rb_masculino_c1)
+                            .addComponent(js_fecha_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(62, 62, 62)
+                        .addGroup(jd_UsuarioComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(tf_direccion_c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_UsuarioComunLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)))
                 .addComponent(ag_usuario_comun, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(41, 41, 41))
+        );
+
+        javax.swing.GroupLayout menu_Usuario_ComunLayout = new javax.swing.GroupLayout(menu_Usuario_Comun.getContentPane());
+        menu_Usuario_Comun.getContentPane().setLayout(menu_Usuario_ComunLayout);
+        menu_Usuario_ComunLayout.setHorizontalGroup(
+            menu_Usuario_ComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        menu_Usuario_ComunLayout.setVerticalGroup(
+            menu_Usuario_ComunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        imagen_principal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectolab_katherine_fabio/descarga.jpg"))); // NOI18N
+        getContentPane().add(imagen_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, -1));
 
         jMenu1.setText("Elecciones");
 
@@ -360,6 +381,11 @@ public class principal_proyectolab extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Usuario Común");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Usuario Candidato");
@@ -376,119 +402,114 @@ public class principal_proyectolab extends javax.swing.JFrame {
 
     private void ag_usuario_candidatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ag_usuario_candidatoMouseClicked
         // TODO add your handling code here:
-//        try {
-//            String usuario,contraseña,nombre,correo,sexo;
-//            Date fecha_nacimiento;
-//            usuario=tf_usuario_c2.getText();
-//            contraseña=tf_contraseña_c2.getText();
-//            nombre=tf_nombre_c2.getText();
-//            correo=tf_correo_c2.getText();
-//            if(rb_masculino_c2.isSelected()){
-//                sexo="MASCULINO";
-//            }else{
-//                sexo="FEMENINO";
-//
-//            }
-//            fecha_nacimiento=jd_fecha_c2.getDate();
-//
-//            //        this.usuario.add(new Usuario_comun(direccion, text, usuario, contraseña, fecha_nacimiento, correo, sexo, nombre));
-//
-//            //lista enlazada
-//            //String nombre_usuario, String contraseña, Date fecha_nacimiento, String correo, String sexo, String nombre
-//            lista.agregarAlInicio(new Usuario_candidato(nombre,usuario, contraseña, fecha_nacimiento, correo, sexo, nombre));
-//            lista.mostarlista();
-//            JOptionPane.showMessageDialog(jd_UsuarioCandidato, "El usuario común se agregó con exito");
-//
-//            DefaultListModel modelo=(DefaultListModel)jl_candidatos.getModel();
-//            modelo.addElement(new Usuario_candidato(nombre,usuario, contraseña, fecha_nacimiento, correo, sexo, nombre));
-//            jl_candidatos.setModel(modelo);
-//
-//            tf_usuario_c2.setText("");
-//            tf_contraseña_c2.setText("");
-//            tf_nombre_c2.setText("");
-//            tf_correo_c2.setText("");
-//            rb_masculino_c2.setSelected(true);
-//            rb_femenino_c2.setSelected(false);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            JOptionPane.showMessageDialog(jd_UsuarioComun, "ocurrio un error y no se guardaron los datos");
-//        }
+        try {
+            String usuario,contraseña,nombre,correo,sexo;
+            Date fecha;
+            usuario=tf_usuario_c2.getText();
+            contraseña=tf_contraseña_c2.getText();
+            nombre=tf_nombre_c2.getText();
+            correo=tf_correo_c2.getText();
+            if(rb_masculino_c2.isSelected()){
+                sexo="MASCULINO";
+            }else{
+                sexo="FEMENINO";
+
+            }
+            fecha=(Date) js_fecha_c2.getValue();
+            //String name, String nombre_usuario, String contraseña,
+            //Date fecha_nacimiento, String correo, String sexo, String nombre
+            this.usuario.add(new Usuario_Candidato(nombre, usuario, contraseña, fecha, correo, sexo, nombre));
+
+            JOptionPane.showMessageDialog(jd_UsuarioCandidato, "usuario candidato registrado exitosamente");
+
+           
+
+            tf_usuario_c2.setText("");
+            tf_contraseña_c2.setText("");
+            tf_nombre_c2.setText("");
+            tf_correo_c2.setText("");
+            rb_masculino_c2.setSelected(true);
+            rb_femenino_c2.setSelected(false);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(jd_UsuarioCandidato, "ocurrio un error y no se guardaron los datos");
+        }
     }//GEN-LAST:event_ag_usuario_candidatoMouseClicked
-
-    private void ag_usuario_candidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ag_usuario_candidatoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ag_usuario_candidatoActionPerformed
-
-    private void rb_femenino_c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_femenino_c2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rb_femenino_c2ActionPerformed
-
-    private void tf_nombre_c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_nombre_c2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_nombre_c2ActionPerformed
-
-    private void tf_correo_c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_correo_c2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_correo_c2ActionPerformed
-
-    private void tf_correo_c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_correo_c1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_correo_c1ActionPerformed
-
-    private void tf_archivo_c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_archivo_c1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_archivo_c1ActionPerformed
 
     private void ag_usuario_comunMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ag_usuario_comunMouseClicked
         // TODO add your handling code here:
-//        try {
-//            String usuario,contraseña,nombre,correo,sexo,direccion,text;
-//            Date fecha_nacimiento;
-//            usuario=tf_usuario_c1.getText();
-//            contraseña=tf_contraseña_c1.getText();
-//            nombre=tf_nombre_c1.getText();
-//            correo=tf_correo_c1.getText();
-//            if(rb_masculino_c1.isSelected()){
-//                sexo="MASCULINO";
-//            }else{
-//                sexo="FEMENINO";
-//
-//            }
-//            direccion=tf_direccion_c1.getText();
-//            fecha_nacimiento=jd_fecha_c1.getDate();
-//            text=tf_archivo_c1.getText();
-//            //String direccion, String Archivo, String nombre_usuario, String contraseña, Date fecha_nacimiento, String correo, String sexo, String nombre
-//            //        this.usuario.add(new Usuario_comun(direccion, text, usuario, contraseña, fecha_nacimiento, correo, sexo, nombre));
-//
-//            //lista enlazada
-//
-//            lista.agregarAlInicio(new Usuario_comun(nombre,direccion, text, usuario, contraseña, fecha_nacimiento, correo, sexo, nombre));
-//            lista.mostarlista();
-//            //        DefaultListModel modelo=(DefaultListModel)lista_amigos.getModel();
-//            //            modelo.addElement(new Usuario_comun(nombre,direccion, text, usuario, contraseña, fecha_nacimiento, correo, sexo, nombre));
-//            //           lista_amigos.setModel(modelo);
-//
-//            JOptionPane.showMessageDialog(jd_UsuarioComun, "El usuario común se agregó con exito");
-//
-//            //agregar a la lista de amigos
-//            DefaultListModel modelo2=(DefaultListModel)lista_usuarios_preamigos.getModel();
-//            modelo2.addElement(new Usuario_comun(direccion, direccion, nombre, usuario, contraseña, fecha_nacimiento, correo, sexo, nombre));
-//
-//            tf_usuario_c1.setText("");
-//            tf_contraseña_c1.setText("");
-//            tf_nombre_c1.setText("");
-//            tf_correo_c1.setText("");
-//            tf_direccion_c1.setText("");
-//            tf_archivo_c1.setText("");
-//            rb_masculino_c1.setSelected(true);
-//            rb_femenino_c1.setSelected(false);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            JOptionPane.showMessageDialog(jd_UsuarioComun, "ocurrio un error y no se guardaron los datos");
-//        }
-
+        
+        try {
+            JFileChooser jfc=new JFileChooser();
+        FileNameExtensionFilter filtro=new FileNameExtensionFilter("Archivos de Texto", "txt");
+        jfc.addChoosableFileFilter(filtro);
+        
+        int seleccion=jfc.showSaveDialog(this);
+        
+        FileWriter fw=null;
+        BufferedWriter bw=null;
+        File fichero=null;
+        if(seleccion==JFileChooser.APPROVE_OPTION){
+            try {
+               if(jfc.getFileFilter().getDescription().equals("Archivos de Texto")){
+                   fichero=new File(jfc.getSelectedFile().getPath()+".txt");
+                   
+               }else{
+                   fichero=jfc.getSelectedFile();
+               }
+               fw=new FileWriter(fichero);
+               bw=new BufferedWriter(fw);
+               bw.write(ta_archivo_c1.getText());
+               
+               bw.flush();
+           
+               JOptionPane.showMessageDialog(jd_UsuarioComun, "Archivo guardado exitosamente");
+               
+            } catch (Exception e) {
+                 e.printStackTrace();
+            }
+        }
+        
+        
+        //.............
+        String direccion=tf_direccion_c1.getText();
+        String nombre=tf_nombre_c1.getText();
+        
+        String usuario_c1=tf_usuario_c1.getText();
+        String contraseña_c1=tf_contraseña_c1.getText();
+        
+        Date fecha=(Date) js_fecha_c1.getValue();
+        String correo=tf_correo_c1.getText();
+        String sexo;
+        if(rb_femenino_c1.isSelected()){
+            sexo="femenino";
+        }else{
+           sexo="masculino";
+        }
+        usuario.add(new Usuario_comun(direccion, fichero, nombre,
+                usuario_c1, contraseña_c1, fecha, correo, sexo, nombre));
+        
+        
+        
+        JOptionPane.showMessageDialog(jd_UsuarioComun, "Usuario comun registrado exitosamente");
+        tf_usuario_c1.setText("");
+            tf_contraseña_c1.setText("");
+            tf_nombre_c1.setText("");
+            tf_correo_c1.setText("");
+            tf_direccion_c1.setText("");
+            rb_masculino_c1.setSelected(true);
+            rb_femenino_c1.setSelected(false);
+            ta_archivo_c1.setText("");
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(jd_UsuarioComun, "ocurrio un error y no se guardaron los datos");
+        }
+        
+    
+        
+        
     }//GEN-LAST:event_ag_usuario_comunMouseClicked
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -506,6 +527,14 @@ public class principal_proyectolab extends javax.swing.JFrame {
         jd_UsuarioCandidato.setLocationRelativeTo(this);
         jd_UsuarioCandidato.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+         menu_Usuario_Comun.setModal(true);
+        menu_Usuario_Comun.pack();
+        menu_Usuario_Comun.setLocationRelativeTo(this);
+        menu_Usuario_Comun.setVisible(true);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -546,6 +575,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.ButtonGroup Sexo;
     private javax.swing.JButton ag_usuario_candidato;
     private javax.swing.JButton ag_usuario_comun;
+    private javax.swing.JLabel imagen_principal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -570,15 +600,18 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDialog jd_UsuarioCandidato;
     private javax.swing.JDialog jd_UsuarioComun;
+    private javax.swing.JSpinner js_fecha_c1;
+    private javax.swing.JSpinner js_fecha_c2;
+    private javax.swing.JDialog menu_Usuario_Comun;
     private javax.swing.JRadioButton rb_femenino_c1;
     private javax.swing.JRadioButton rb_femenino_c2;
     private javax.swing.JRadioButton rb_masculino_c1;
     private javax.swing.JRadioButton rb_masculino_c2;
     private javax.swing.ButtonGroup sexo2;
-    private javax.swing.JTextField tf_archivo_c1;
+    private javax.swing.JTextArea ta_archivo_c1;
     private javax.swing.JPasswordField tf_contraseña_c1;
     private javax.swing.JPasswordField tf_contraseña_c2;
     private javax.swing.JTextField tf_correo_c1;
@@ -589,4 +622,8 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JTextField tf_usuario_c1;
     private javax.swing.JTextField tf_usuario_c2;
     // End of variables declaration//GEN-END:variables
+ArrayList<Usuario> usuario=new ArrayList();
+
+
+    
 }
