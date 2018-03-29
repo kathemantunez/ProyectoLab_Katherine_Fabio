@@ -6,6 +6,7 @@
 package proyectolab_katherine_fabio;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,13 +14,14 @@ import java.util.Date;
  *
  * @author KATHERINE
  */
-public class Usuario_comun extends Usuario{
+public class Usuario_comun extends Usuario {
     private String direccion;
     private ArrayList<Correos> correos=new ArrayList();
-    private ArrayList<Candidatos> candidatos=new ArrayList();
+    private ArrayList<Usuario_Candidato> candidatos_seguir=new ArrayList();
     private File Archivo;//cambiar
     private ArrayList<Amigos> amigos=new ArrayList();
     private String name2;
+    
 
     public Usuario_comun(String direccion, File Archivo, String name2, String nombre_usuario, String contraseña, Date fecha_nacimiento, String correo, String sexo, String nombre) {
         super(nombre_usuario, contraseña, fecha_nacimiento, correo, sexo, nombre);
@@ -61,13 +63,15 @@ public class Usuario_comun extends Usuario{
         this.correos = correos;
     }
 
-    public ArrayList<Candidatos> getCandidatos() {
-        return candidatos;
+    public ArrayList<Usuario_Candidato> getCandidatos_seguir() {
+        return candidatos_seguir;
     }
 
-    public void setCandidatos(ArrayList<Candidatos> candidatos) {
-        this.candidatos = candidatos;
+    public void setCandidatos_seguir(Usuario_Candidato candidatos_seguir) {
+        this.candidatos_seguir.add(candidatos_seguir);
     }
+
+    
 
     public File getArchivo() {
         return Archivo;

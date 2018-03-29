@@ -5,19 +5,21 @@
  */
 package proyectolab_katherine_fabio;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author KATHERINE
  */
-public class Usuario {
+public class Usuario implements Serializable{
      private String nombre_usuario;//*
     private String contraseña;
     private Date fecha_nacimiento;//*
     private String correo;
     private String sexo;
     private String nombre;
+     private static final long SerialVersionUID=777L;//version
 
     public Usuario(String nombre_usuario, String contraseña, Date fecha_nacimiento, String correo, String sexo, String nombre) {
         this.nombre_usuario = nombre_usuario;
