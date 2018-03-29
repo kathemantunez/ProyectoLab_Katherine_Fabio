@@ -123,6 +123,9 @@ public class principal_proyectolab extends javax.swing.JFrame {
         cb_candidatos = new javax.swing.JComboBox<>();
         jLabel27 = new javax.swing.JLabel();
         publicaciones = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        ta_publicaciones = new javax.swing.JTextArea();
+        jButton4 = new javax.swing.JButton();
         messenger = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -649,15 +652,36 @@ public class principal_proyectolab extends javax.swing.JFrame {
 
         tab.addTab("Ver Candidatos", candidatos);
 
+        ta_publicaciones.setColumns(20);
+        ta_publicaciones.setRows(5);
+        jScrollPane6.setViewportView(ta_publicaciones);
+
+        jButton4.setText("Actualizar Publicaciones");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout publicacionesLayout = new javax.swing.GroupLayout(publicaciones);
         publicaciones.setLayout(publicacionesLayout);
         publicacionesLayout.setHorizontalGroup(
             publicacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 853, Short.MAX_VALUE)
+            .addGroup(publicacionesLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(publicacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         publicacionesLayout.setVerticalGroup(
             publicacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, publicacionesLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
         );
 
         tab.addTab("Publicaciones", publicaciones);
@@ -1271,6 +1295,16 @@ public class principal_proyectolab extends javax.swing.JFrame {
         enviarMensaje(emisor,receptor);
     }//GEN-LAST:event_jButton3MouseClicked
 
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        //publicaciones
+        String publicacion="";
+        for (int i = 0; i < usuario_comun_actual.getCandidatos_seguir().size(); i++) {
+            publicacion+=usuario_comun_actual.getCandidatos_seguir().get(i).getPublicaciones()+"\n";
+        }
+        ta_publicaciones.setText(publicacion);
+    }//GEN-LAST:event_jButton4MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1323,6 +1357,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1361,6 +1396,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JDialog jd_UsuarioCandidato;
     private javax.swing.JDialog jd_UsuarioComun;
     private javax.swing.JList<String> jl_amigos;
@@ -1385,6 +1421,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JTextArea ta_archivo_1;
     private javax.swing.JTextArea ta_archivo_c1;
     private javax.swing.JTextArea ta_mensajes;
+    private javax.swing.JTextArea ta_publicaciones;
     private javax.swing.JTabbedPane tab;
     private javax.swing.JPasswordField tf_contraseña;
     private javax.swing.JTextField tf_contraseña1;
