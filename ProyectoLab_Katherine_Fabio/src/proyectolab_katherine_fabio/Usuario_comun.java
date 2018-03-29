@@ -19,7 +19,7 @@ public class Usuario_comun extends Usuario {
     private ArrayList<Correos> correos=new ArrayList();
     private ArrayList<Usuario_Candidato> candidatos_seguir=new ArrayList();
     private File Archivo;//cambiar
-    private ArrayList<Amigos> amigos=new ArrayList();
+    private ArrayList<Usuario_comun> amigos=new ArrayList();
     private String name2;
     
 
@@ -81,13 +81,15 @@ public class Usuario_comun extends Usuario {
         this.Archivo = Archivo;
     }
 
-    public ArrayList<Amigos> getAmigos() {
+    public ArrayList<Usuario_comun> getAmigos() {
         return amigos;
     }
 
-    public void setAmigos(ArrayList<Amigos> amigos) {
-        this.amigos = amigos;
+    public void setAmigos(Usuario_comun amigos) {
+        this.amigos.add(amigos);
     }
+
+    
 
     @Override
     public String toString() {
