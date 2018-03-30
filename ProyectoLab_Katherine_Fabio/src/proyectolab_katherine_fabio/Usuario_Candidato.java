@@ -38,8 +38,8 @@ public class Usuario_Candidato extends Usuario{
         return publicaciones;
     }
 
-    public void setPublicaciones(ArrayList<Publicaciones> publicaciones) {
-        this.publicaciones = publicaciones;
+    public void setPublicaciones(Publicaciones publicaciones) {
+        this.publicaciones.add(publicaciones);
     }
 
     public ArrayList<Seguidores> getSeguidores() {

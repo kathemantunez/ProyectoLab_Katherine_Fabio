@@ -1479,6 +1479,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Usuario Candidato"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="m_usuario_candidatoMouseClicked"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>

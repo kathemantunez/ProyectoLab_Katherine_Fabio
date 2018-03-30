@@ -1011,6 +1011,11 @@ public class principal_proyectolab extends javax.swing.JFrame {
         jMenuBar1.add(m_usuario_comun);
 
         m_usuario_candidato.setText("Usuario Candidato");
+        m_usuario_candidato.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                m_usuario_candidatoMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(m_usuario_candidato);
 
         setJMenuBar(jMenuBar1);
@@ -1450,11 +1455,11 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
         //publicaciones
-        String publicacion="";
+        String publicaciones="";
         for (int i = 0; i < usuario_comun_actual.getCandidatos_seguir().size(); i++) {
-            publicacion+=usuario_comun_actual.getCandidatos_seguir().get(i).getPublicaciones()+"\n";
+            publicaciones+=usuario_comun_actual.getCandidatos_seguir().get(i).getPublicaciones()+"\n";
         }
-        ta_publicaciones.setText(publicacion);
+        ta_publicaciones.setText(publicaciones);
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void tf_usuario_c3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_usuario_c3ActionPerformed
@@ -1462,9 +1467,22 @@ public class principal_proyectolab extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_usuario_c3ActionPerformed
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-      publicacion.add(new Publicaciones(area_publicacion.getText()));
-      JOptionPane.showMessageDialog(menu_usuarioCandidato, "Publicacion Realizada");
+      Publicaciones p =new Publicaciones(area_publicacion.getText(),usuario_candidato_actual.getName());
+        usuario_candidato_actual.setPublicaciones(p);
+          JOptionPane.showMessageDialog(menu_usuarioCandidato, "Publicacion Realizada");
+        System.out.println(p);
+        
+//        publicacion.add(new Publicaciones(area_publicacion.getText()));
+//      JOptionPane.showMessageDialog(menu_usuarioCandidato, "Publicacion Realizada");
     }//GEN-LAST:event_jButton5MouseClicked
+
+    private void m_usuario_candidatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_usuario_candidatoMouseClicked
+        // TODO add your handling code here:
+          menu_usuarioCandidato.setModal(true);
+        menu_usuarioCandidato.pack();
+        menu_usuarioCandidato.setLocationRelativeTo(this);
+        menu_usuarioCandidato.setVisible(true);
+    }//GEN-LAST:event_m_usuario_candidatoMouseClicked
 
     /**
      * @param args the command line arguments
