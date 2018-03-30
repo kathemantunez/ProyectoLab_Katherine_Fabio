@@ -10,5 +10,22 @@ package proyectolab_katherine_fabio;
  * @author KATHERINE
  */
 class Publicaciones {
-    
+    private String texto;
+
+    public Publicaciones(String texto) {
+        this.texto = texto;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    @Override
+    public String toString() {
+        return "Publicaciones{" + "texto=" + texto + '}';
+    }
 }
