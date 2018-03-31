@@ -1296,19 +1296,19 @@ public class principal_proyectolab extends javax.swing.JFrame {
                     usuario_comun_actual=(Usuario_comun)usuario.get(i);
                     m_usuario_comun.setEnabled(true);
                     mi_logout.setEnabled(true);
+                    mi_login.setEnabled(false);
                     
                     tf_usuario.setText("");
                     tf_contraseña.setText("");
                     login.setVisible(false);
-                    for (int j = 0; j < usuario_comun_actual.getCandidatos_seguir().size(); j++) {
-                        System.out.println(usuario_comun_actual.getCandidatos_seguir().get(i).getPublicaciones());
-                    }
+                    
                     
                 }
                 if(usuario.get(i)instanceof Usuario_Candidato){
                     usuario_candidato_actual=(Usuario_Candidato)usuario.get(i);
                     m_usuario_candidato.setEnabled(true);
                     mi_logout.setEnabled(true);
+                     mi_login.setEnabled(false);
                     
                     tf_usuario.setText("");
                     tf_contraseña.setText("");
@@ -1328,6 +1328,8 @@ public class principal_proyectolab extends javax.swing.JFrame {
         // TODO add your handling code here:
         m_usuario_candidato.setEnabled(false);
         m_usuario_comun.setEnabled(false);
+        mi_login.setEnabled(true);
+        mi_logout.setEnabled(false);
         
         
         tf_nombre1.setText("");
