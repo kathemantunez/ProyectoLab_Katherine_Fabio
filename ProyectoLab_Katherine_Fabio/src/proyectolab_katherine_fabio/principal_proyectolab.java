@@ -135,6 +135,11 @@ public class principal_proyectolab extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         ta_mensajes1 = new javax.swing.JTextArea();
         actas = new javax.swing.JPanel();
+        jLabel42 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
         login = new javax.swing.JDialog();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -798,15 +803,48 @@ public class principal_proyectolab extends javax.swing.JFrame {
 
         tab.addTab("Messenger", messenger);
 
+        jLabel42.setText("Seleccione Acta");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel43.setText("Departamento");
+
+        jLabel44.setText("Numero de acta");
+
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
+
         javax.swing.GroupLayout actasLayout = new javax.swing.GroupLayout(actas);
         actas.setLayout(actasLayout);
         actasLayout.setHorizontalGroup(
             actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 853, Short.MAX_VALUE)
+            .addGroup(actasLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel42)
+                    .addGroup(actasLayout.createSequentialGroup()
+                        .addGroup(actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel43))
+                        .addGap(118, 118, 118)
+                        .addGroup(actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSpinner1))))
+                .addContainerGap(374, Short.MAX_VALUE))
         );
         actasLayout.setVerticalGroup(
             actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGroup(actasLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel42)
+                .addGap(11, 11, 11)
+                .addGroup(actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel43)
+                    .addComponent(jLabel44))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(537, Short.MAX_VALUE))
         );
 
         tab.addTab("Actas", actas);
@@ -1726,6 +1764,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1762,6 +1801,9 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1784,6 +1826,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JDialog jd_UsuarioCandidato;
     private javax.swing.JDialog jd_UsuarioComun;
