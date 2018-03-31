@@ -58,13 +58,13 @@ private String texto_publicacion="";
         this.name = name;
     }
 
-    public String getTexto_publicacion() {
-        return texto_publicacion;
-    }
-
-    public void setTexto_publicacion(String texto_publicacion) {
-        this.texto_publicacion += texto_publicacion+"\n";
-    }
+//    public String getTexto_publicacion() {
+//        return texto_publicacion;
+//    }
+//
+//    public void setTexto_publicacion(String texto_publicacion) {
+//        this.texto_publicacion += texto_publicacion+"\n";
+//    }
 
     
     @Override

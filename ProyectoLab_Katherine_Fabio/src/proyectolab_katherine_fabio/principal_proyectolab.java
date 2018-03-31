@@ -1207,6 +1207,9 @@ public class principal_proyectolab extends javax.swing.JFrame {
                     tf_usuario.setText("");
                     tf_contraseña.setText("");
                     login.setVisible(false);
+                    for (int j = 0; j < usuario_comun_actual.getCandidatos_seguir().size(); j++) {
+                        System.out.println(usuario_comun_actual.getCandidatos_seguir().get(i).getPublicaciones());
+                    }
                     
                 }
                 if(usuario.get(i)instanceof Usuario_Candidato){
@@ -1375,10 +1378,19 @@ public class principal_proyectolab extends javax.swing.JFrame {
 
     private void cb_candidatosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_candidatosItemStateChanged
         // TODO add your handling code here:
+        
         DefaultListModel modelo_lista_seguidores=(DefaultListModel)jl_candidatos2.getModel();
          if(evt.getStateChange()==1){
             Usuario_Candidato temp=(Usuario_Candidato)cb_candidatos.getSelectedItem();
             if(temp !=null){
+//                admin_u_comun ap=new admin_u_comun("./Usuario_Comun.cbm");
+////            
+//            ap.cargarArchivo();
+//                for (int i = 0; i < ap.getLista_comun().size(); i++) {
+//                    if(ap.getLista_comun().get(i).equals(usuario_comun_actual)){
+//                        ap.getLista_comun().get(i).setCandidatos_seguir(temp);
+//                    }
+//                }
                 usuario_comun_actual.setCandidatos_seguir(temp);
                 modelo_lista_seguidores.addElement(temp);
                 jl_candidatos2.setModel(modelo_lista_seguidores);
@@ -1455,12 +1467,21 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
         //publicaciones
-        String publicaciones="";
+        String cadena_publicaciones="";
+//        admin_u_comun ap=new admin_u_comun("./Usuario_Comun.cbm");
+//            
+//            ap.cargarArchivo();
+//            for (int i = 0; i < ap.getLista_comun().size(); i++) {
+//            if(ap.getLista_comun().get(i).equals(usuario_comun_actual)){
+//                publicaciones+=ap.getLista_comun().get(i).getCandidatos_seguir().get(i).getPublicaciones()+"\n";
+//            }
+//        }
         for (int i = 0; i < usuario_comun_actual.getCandidatos_seguir().size(); i++) {
-            publicaciones+=usuario_comun_actual.getCandidatos_seguir().get(i).getTexto_publicacion()+"\n";
-            System.out.println(usuario_comun_actual.getCandidatos_seguir().get(i).getTexto_publicacion()+"\n hola\n");
+            cadena_publicaciones+=usuario_comun_actual.getCandidatos_seguir().get(i).getPublicaciones()+"\n";
+//            System.out.println(usuario_comun_actual.getCandidatos_seguir().get(i).getTexto_publicacion()+"\n hola\n");
+        
         }
-        ta_publicaciones.setText(publicaciones);
+        ta_publicaciones.setText(cadena_publicaciones);
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void tf_usuario_c3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_usuario_c3ActionPerformed
@@ -1468,10 +1489,15 @@ public class principal_proyectolab extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_usuario_c3ActionPerformed
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-      p =new Publicaciones(area_publicacion.getText(),usuario_candidato_actual.getName());
-        usuario_candidato_actual.setTexto_publicacion(area_publicacion.getText());
+      
+        p =new Publicaciones(area_publicacion.getText(),usuario_candidato_actual.getName());
+       
+        usuario_candidato_actual.setPublicaciones(p);
           JOptionPane.showMessageDialog(menu_usuarioCandidato, "Publicacion Realizada");
+          System.out.println(p);
        area_publicacion.setText("");
+       
+//     
         
 //        publicacion.add(new Publicaciones(area_publicacion.getText()));
 //      JOptionPane.showMessageDialog(menu_usuarioCandidato, "Publicacion Realizada");
