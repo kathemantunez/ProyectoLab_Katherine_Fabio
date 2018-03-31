@@ -159,6 +159,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
         tf_correo_c3 = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         js_fecha_c3 = new javax.swing.JSpinner();
+        jButton6 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
@@ -896,6 +897,9 @@ public class principal_proyectolab extends javax.swing.JFrame {
         js_fecha_c3.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(915227160000L), null, new java.util.Date(946763160000L), java.util.Calendar.DAY_OF_YEAR));
         jPanel8.add(js_fecha_c3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, -1, -1));
 
+        jButton6.setText("MODIFICAR");
+        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 100, 70));
+
         jTabbedPane2.addTab("Ver mi perfil", jPanel8);
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -1011,6 +1015,11 @@ public class principal_proyectolab extends javax.swing.JFrame {
         jMenuBar1.add(m_usuario_comun);
 
         m_usuario_candidato.setText("Usuario Candidato");
+        m_usuario_candidato.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                m_usuario_candidatoMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(m_usuario_candidato);
 
         setJMenuBar(jMenuBar1);
@@ -1198,13 +1207,21 @@ public class principal_proyectolab extends javax.swing.JFrame {
                     usuario_comun_actual=(Usuario_comun)usuario.get(i);
                     m_usuario_comun.setEnabled(true);
                     mi_logout.setEnabled(true);
+         
+             
                     
+                }
+                if(usuario.get(i)instanceof Usuario_Candidato){
+                    
+                          tf_nombre_c3.setText(usuario.get(i).getNombre());
+                    tf_usuario_c3.setText(usuario.get(i).getNombre_usuario());
+                    tf_correo_c3.setText(usuario.get(i).getCorreo());
+                    tf_contraseña_c3.setText(usuario.get(i).getContraseña());
+
                     tf_usuario.setText("");
                     tf_contraseña.setText("");
                     login.setVisible(false);
                     
-                }
-                if(usuario.get(i)instanceof Usuario_Candidato){
                     usuario_candidato_actual=(Usuario_Candidato)usuario.get(i);
                     m_usuario_candidato.setEnabled(true);
                     mi_logout.setEnabled(true);
@@ -1466,6 +1483,13 @@ public class principal_proyectolab extends javax.swing.JFrame {
       JOptionPane.showMessageDialog(menu_usuarioCandidato, "Publicacion Realizada");
     }//GEN-LAST:event_jButton5MouseClicked
 
+    private void m_usuario_candidatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_usuario_candidatoMouseClicked
+        menu_usuarioCandidato.setModal(true);
+        menu_usuarioCandidato.pack();
+        menu_usuarioCandidato.setLocationRelativeTo(this);
+        menu_usuarioCandidato.setVisible(true);
+    }//GEN-LAST:event_m_usuario_candidatoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1521,6 +1545,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1671,6 +1696,15 @@ String usuario1="";
 public static boolean detectives(String emisor, Object usuario) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
+
+
+String informacion_temporal_usuario="";
+String informacion_temporal_nombre="";
+String informacion_temporal_sexo="";
+String informacion_temporal_contraseña="";
+String informacion_temporal_correo="";
+
+
 
     
 }
