@@ -16,7 +16,8 @@ import java.util.Date;
  */
 public class Usuario_comun extends Usuario {
     private String direccion;
-    private ArrayList<Correos> correos=new ArrayList();
+    private ArrayList<mensajes> mensajes_enviados=new ArrayList();
+     private ArrayList<mensajes> mensajes_recibidos=new ArrayList();
     private ArrayList<Usuario_Candidato> candidatos_seguir=new ArrayList();
     private File Archivo;//cambiar
     private ArrayList<Usuario_comun> amigos=new ArrayList();
@@ -28,6 +29,14 @@ public class Usuario_comun extends Usuario {
         this.direccion = direccion;
         this.Archivo = Archivo;
         this.name2 = name2;
+    }
+
+    public void setCandidatos_seguir2(ArrayList<Usuario_Candidato> candidatos_seguir) {
+        this.candidatos_seguir = candidatos_seguir;
+    }
+
+    public void setAmigos2(ArrayList<Usuario_comun> amigos) {
+        this.amigos = amigos;
     }
 
     
@@ -55,13 +64,23 @@ public class Usuario_comun extends Usuario {
         this.direccion = direccion;
     }
 
-    public ArrayList<Correos> getCorreos() {
-        return correos;
+    public ArrayList<mensajes> getMensajes_enviados() {
+        return mensajes_enviados;
     }
 
-    public void setCorreos(ArrayList<Correos> correos) {
-        this.correos = correos;
+    public void setMensajes_enviados(ArrayList<mensajes> mensajes_enviados) {
+        this.mensajes_enviados = mensajes_enviados;
     }
+
+    public ArrayList<mensajes> getMensajes_recibidos() {
+        return mensajes_recibidos;
+    }
+
+    public void setMensajes_recibidos(ArrayList<mensajes> mensajes_recibidos) {
+        this.mensajes_recibidos = mensajes_recibidos;
+    }
+
+    
 
     public ArrayList<Usuario_Candidato> getCandidatos_seguir() {
         return candidatos_seguir;

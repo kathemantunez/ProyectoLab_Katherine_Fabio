@@ -17,7 +17,7 @@ public class Usuario_Candidato extends Usuario{
     private ArrayList<Publicaciones> publicaciones=new ArrayList();
     private ArrayList<Seguidores> seguidores=new ArrayList();
     private String name;
-
+private String texto_publicacion="";
     public Usuario_Candidato() {
     }
 
@@ -38,9 +38,13 @@ public class Usuario_Candidato extends Usuario{
         return publicaciones;
     }
 
-    public void setPublicaciones(ArrayList<Publicaciones> publicaciones) {
-        this.publicaciones = publicaciones;
+    public void setPublicaciones(Publicaciones publicaciones) {
+        this.publicaciones.add(publicaciones);
     }
+
+    
+
+    
 
     public ArrayList<Seguidores> getSeguidores() {
         return seguidores;
@@ -58,6 +62,15 @@ public class Usuario_Candidato extends Usuario{
         this.name = name;
     }
 
+//    public String getTexto_publicacion() {
+//        return texto_publicacion;
+//    }
+//
+//    public void setTexto_publicacion(String texto_publicacion) {
+//        this.texto_publicacion += texto_publicacion+"\n";
+//    }
+
+    
     @Override
     public String toString() {
         return name;

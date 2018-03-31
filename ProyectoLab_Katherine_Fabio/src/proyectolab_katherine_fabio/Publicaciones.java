@@ -11,10 +11,22 @@ package proyectolab_katherine_fabio;
  */
 class Publicaciones {
     private String texto;
+    private String nombre_candidato;
 
-    public Publicaciones(String texto) {
+    public Publicaciones(String texto, String nombre_candidato) {
         this.texto = texto;
+        this.nombre_candidato = nombre_candidato;
     }
+
+    public String getNombre_candidato() {
+        return nombre_candidato;
+    }
+
+    public void setNombre_candidato(String nombre_candidato) {
+        this.nombre_candidato = nombre_candidato;
+    }
+
+  
 
     public String getTexto() {
         return texto;
@@ -26,6 +38,6 @@ class Publicaciones {
 
     @Override
     public String toString() {
-        return "Publicaciones{" + "texto=" + texto + '}';
+        return "Publicaciones de "+nombre_candidato+":" + texto ;
     }
 }
