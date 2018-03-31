@@ -486,7 +486,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
                 cb_candidatos_publicacionesItemStateChanged(evt);
             }
         });
-        publicaciones.add(cb_candidatos_publicaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 45, 201, -1));
+        publicaciones.add(cb_candidatos_publicaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 201, -1));
 
         jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectolab_katherine_fabio/background.jpg"))); // NOI18N
         jLabel51.setText("jLabel48");
@@ -637,7 +637,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
         jPanel7.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, -1));
 
         jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectolab_katherine_fabio/background2.jpg"))); // NOI18N
-        jPanel7.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 480));
+        jPanel7.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 480));
 
         jTabbedPane2.addTab("Realizar Publicacion", jPanel7);
 
@@ -685,7 +685,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
         jPanel8.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 100, 70));
 
         jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectolab_katherine_fabio/background2.jpg"))); // NOI18N
-        jPanel8.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 480));
+        jPanel8.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 480));
 
         jTabbedPane2.addTab("Ver mi perfil", jPanel8);
 
@@ -706,7 +706,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
         jPanel9.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 135, -1, -1));
 
         jLabel55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectolab_katherine_fabio/background2.jpg"))); // NOI18N
-        jPanel9.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 480));
+        jPanel9.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 480));
 
         jTabbedPane2.addTab("Ver estadistica de votos", jPanel9);
 
@@ -714,7 +714,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
         menu_usuarioCandidato.getContentPane().setLayout(menu_usuarioCandidatoLayout);
         menu_usuarioCandidatoLayout.setHorizontalGroup(
             menu_usuarioCandidatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2)
         );
         menu_usuarioCandidatoLayout.setVerticalGroup(
             menu_usuarioCandidatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1309,10 +1309,17 @@ public class principal_proyectolab extends javax.swing.JFrame {
 //        p =new Publicaciones(area_publicacion.getText(),usuario_candidato_actual.getName());
 //       
 //        usuario_candidato_actual.setPublicaciones(p);
- publicacion.add(new Publicaciones(area_publicacion.getText(),usuario_candidato_actual.getName()));
+ publicacion.add(new Publicaciones(area_publicacion.getText(),usuario_candidato_actual));
           JOptionPane.showMessageDialog(menu_usuarioCandidato, "Publicacion Realizada");
           
        area_publicacion.setText("");
+       
+        Publicaciones p2 =new Publicaciones(area_publicacion.getText(), usuario_candidato_actual);
+//        
+        admin_publicaciones ap=new admin_publicaciones("./publicaciones.cbm");
+        ap.cargarArchivo();
+        ap.set_publi(p2);
+        ap.escribirArchivo();
        
 //     
         
@@ -1371,20 +1378,27 @@ public class principal_proyectolab extends javax.swing.JFrame {
 
     private void cb_candidatos_publicacionesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_candidatos_publicacionesItemStateChanged
         // TODO add your handling code here:
-        
+        admin_publicaciones ap=new admin_publicaciones("./publicaciones.cbm");
+        ap.cargarArchivo();
           if(evt.getStateChange()==1){
               String publi="";
-            Usuario_Candidato temp=(Usuario_Candidato)cb_candidatos.getSelectedItem();
+            Usuario_Candidato temp=(Usuario_Candidato)cb_candidatos_publicaciones.getSelectedItem();
             if(temp !=null){
                 for (int i = 0; i < publicacion.size(); i++) {
-                   if(publicacion.get(i).getNombre_candidato().equals(temp.getName())){
+                   if(publicacion.get(i).getNombre_candidato().equals(temp)){
                        publi+=publicacion.get(i)+"\n";
                    }
                    
                   
                 }
                 ta_publicaciones.setText(publi);
-                
+//                 for (int i = 0; i < ap.getLista_publicaciones().size(); i++) {
+//                    if(ap.getLista_publicaciones().get(i).getNombre_candidato().equals(temp)){
+//                        publi+=ap.getLista_publicaciones().get(i).getTexto();
+//                    }
+//                }
+//                 ta_publicaciones.setText(publi);
+//                
             }
                             
           }

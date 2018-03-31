@@ -5,26 +5,33 @@
  */
 package proyectolab_katherine_fabio;
 
+import java.io.Serializable;
+
 /**
  *
  * @author KATHERINE
  */
-class Publicaciones {
+class Publicaciones implements Serializable{
     private String texto;
-    private String nombre_candidato;
+    private Usuario_Candidato nombre_candidato;
+private static final long SerialVersionUID=777L;//version
+    public Publicaciones() {
+    }
 
-    public Publicaciones(String texto, String nombre_candidato) {
+    public Publicaciones(String texto, Usuario_Candidato nombre_candidato) {
         this.texto = texto;
         this.nombre_candidato = nombre_candidato;
     }
 
-    public String getNombre_candidato() {
+    public Usuario_Candidato getNombre_candidato() {
         return nombre_candidato;
     }
 
-    public void setNombre_candidato(String nombre_candidato) {
+    public void setNombre_candidato(Usuario_Candidato nombre_candidato) {
         this.nombre_candidato = nombre_candidato;
     }
+
+    
 
   
 
