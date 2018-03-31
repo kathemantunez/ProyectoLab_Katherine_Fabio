@@ -1457,7 +1457,8 @@ public class principal_proyectolab extends javax.swing.JFrame {
         //publicaciones
         String publicaciones="";
         for (int i = 0; i < usuario_comun_actual.getCandidatos_seguir().size(); i++) {
-            publicaciones+=usuario_comun_actual.getCandidatos_seguir().get(i).getPublicaciones()+"\n";
+            publicaciones+=usuario_comun_actual.getCandidatos_seguir().get(i).getTexto_publicacion()+"\n";
+            System.out.println(usuario_comun_actual.getCandidatos_seguir().get(i).getTexto_publicacion()+"\n hola\n");
         }
         ta_publicaciones.setText(publicaciones);
     }//GEN-LAST:event_jButton4MouseClicked
@@ -1467,10 +1468,10 @@ public class principal_proyectolab extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_usuario_c3ActionPerformed
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-      Publicaciones p =new Publicaciones(area_publicacion.getText(),usuario_candidato_actual.getName());
-        usuario_candidato_actual.setPublicaciones(p);
+      p =new Publicaciones(area_publicacion.getText(),usuario_candidato_actual.getName());
+        usuario_candidato_actual.setTexto_publicacion(area_publicacion.getText());
           JOptionPane.showMessageDialog(menu_usuarioCandidato, "Publicacion Realizada");
-        System.out.println(p);
+       area_publicacion.setText("");
         
 //        publicacion.add(new Publicaciones(area_publicacion.getText()));
 //      JOptionPane.showMessageDialog(menu_usuarioCandidato, "Publicacion Realizada");
@@ -1654,7 +1655,7 @@ Usuario_Candidato usuario_candidato_actual;
  
  
  ArrayList<Publicaciones> publicacion = new ArrayList();
- 
+  Publicaciones p ;
  
 String usuario1="";
 

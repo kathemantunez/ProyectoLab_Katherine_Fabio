@@ -38,6 +38,6 @@ class Publicaciones {
 
     @Override
     public String toString() {
-        return "Publicaciones de:"+nombre_candidato+":" + texto ;
+        return "Publicaciones de "+nombre_candidato+":" + texto ;
     }
 }
