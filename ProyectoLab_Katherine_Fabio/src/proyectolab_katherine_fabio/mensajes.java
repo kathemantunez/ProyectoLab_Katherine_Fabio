@@ -5,6 +5,7 @@
  */
 package proyectolab_katherine_fabio;
 
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,41 +13,69 @@ import javax.swing.JOptionPane;
  * @author KATHERINE
  */
 public class mensajes {
-    private String titulo;
-    private String emisor;
-    private String receptor;
-    private String cuerpo;
-    private int importancia;
-     
-    public mensajes(String envia, String recibe){
-        this.emisor=envia;
-        this.receptor=recibe;
+     private Usuario emisor;//quien envia el mensaje
+    private Usuario receptor;// el que lo reccibe
+    private String asunto;
+    private String descripcion;
+    private Date fecha;
+
+    public mensajes() {
     }
 
-    public String getTitulo() {
-        return titulo;
+    public mensajes(Usuario emisor, Usuario receptor, String asunto, String descripcion, Date fecha) {
+        this.emisor = emisor;
+        this.receptor = receptor;
+        this.asunto = asunto;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
     }
 
-    public String getEmisor() {
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    
+
+    public Usuario getEmisor() {
         return emisor;
     }
 
-    public String getReceptor() {
+    public void setEmisor(Usuario emisor) {
+        this.emisor = emisor;
+    }
+
+    public Usuario getReceptor() {
         return receptor;
     }
 
-    public String getCuerpo() {
-        return cuerpo;
+    public void setReceptor(Usuario receptor) {
+        this.receptor = receptor;
     }
 
-    public int getImportancia() {
-        return importancia;
+    public String getAsunto() {
+        return asunto;
     }
-    public void nuevoMensaje(){
-        cuerpo=JOptionPane.showInputDialog("ESCRIBA SU MESAJE:");
-        importancia=Integer.parseInt(JOptionPane.showInputDialog("importancia del mensaje:"));
+
+    public void setAsunto(String asunto) {
+        this.asunto = asunto;
     }
-    public String toString(){
-        return "emisor:"+emisor+"  recibe"+receptor+"\n mensaje:"+cuerpo+"  Importancia:"+importancia;
+
+    public String getDescripcion() {
+        return descripcion;
     }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    @Override
+    public String toString() {
+        return "emisor=" + emisor + ", receptor=" + receptor + ", asunto=" + asunto + ", descripcion=" + descripcion + ", fecha=" + fecha ;
+    }
+
+    
 }
