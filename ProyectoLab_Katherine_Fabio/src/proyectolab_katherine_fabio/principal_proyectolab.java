@@ -167,6 +167,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
         tf_correo_c3 = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         js_fecha_c3 = new javax.swing.JSpinner();
+        jButton6 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
@@ -971,6 +972,9 @@ public class principal_proyectolab extends javax.swing.JFrame {
         js_fecha_c3.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(915227160000L), null, new java.util.Date(946763160000L), java.util.Calendar.DAY_OF_YEAR));
         jPanel8.add(js_fecha_c3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, -1, -1));
 
+        jButton6.setText("MODIFICAR");
+        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 100, 70));
+
         jTabbedPane2.addTab("Ver mi perfil", jPanel8);
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -1334,15 +1338,26 @@ public class principal_proyectolab extends javax.swing.JFrame {
                     usuario_comun_actual=(Usuario_comun)usuario.get(i);
                     m_usuario_comun.setEnabled(true);
                     mi_logout.setEnabled(true);
-                    mi_login.setEnabled(false);
+<<<<<<< HEAD
+         
+             
                     
+                }
+                if(usuario.get(i)instanceof Usuario_Candidato){
+=======
+                    mi_login.setEnabled(false);
+>>>>>>> 924b35d6ceb4f3b2a3d642df3fc19398a7d98880
+                    
+                          tf_nombre_c3.setText(usuario.get(i).getNombre());
+                    tf_usuario_c3.setText(usuario.get(i).getNombre_usuario());
+                    tf_correo_c3.setText(usuario.get(i).getCorreo());
+                    tf_contraseña_c3.setText(usuario.get(i).getContraseña());
+
                     tf_usuario.setText("");
                     tf_contraseña.setText("");
                     login.setVisible(false);
                     
                     
-                }
-                if(usuario.get(i)instanceof Usuario_Candidato){
                     usuario_candidato_actual=(Usuario_Candidato)usuario.get(i);
                     m_usuario_candidato.setEnabled(true);
                     mi_logout.setEnabled(true);
@@ -1615,15 +1630,11 @@ public class principal_proyectolab extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-
-
      mensaje.setModal(true);
         mensaje.pack();
         mensaje.setLocationRelativeTo(this);
         mensaje.setVisible(true);
         
-        
-
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void tf_usuario_c3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_usuario_c3ActionPerformed
@@ -1646,12 +1657,16 @@ public class principal_proyectolab extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void m_usuario_candidatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_usuario_candidatoMouseClicked
+
         // TODO add your handling code here:
           menu_usuarioCandidato.setModal(true);
+
         menu_usuarioCandidato.pack();
         menu_usuarioCandidato.setLocationRelativeTo(this);
         menu_usuarioCandidato.setVisible(true);
     }//GEN-LAST:event_m_usuario_candidatoMouseClicked
+
+
 
     private void enviar_mensajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviar_mensajeMouseClicked
         // TODO add your handling code here:
@@ -1705,6 +1720,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
           }
         
     }//GEN-LAST:event_cb_publicacionesItemStateChanged
+
 
     /**
      * @param args the command line arguments
@@ -1898,6 +1914,15 @@ String usuario1="";
  mensajes correo = new mensajes();
   
     
+
+
+String informacion_temporal_usuario="";
+String informacion_temporal_nombre="";
+String informacion_temporal_sexo="";
+String informacion_temporal_contraseña="";
+String informacion_temporal_correo="";
+
+
 
     
 }
