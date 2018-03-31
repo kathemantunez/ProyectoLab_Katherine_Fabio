@@ -1300,11 +1300,15 @@ public class principal_proyectolab extends javax.swing.JFrame {
                     usuario_comun_actual=(Usuario_comun)usuario.get(i);
                     m_usuario_comun.setEnabled(true);
                     mi_logout.setEnabled(true);
+<<<<<<< HEAD
          
              
                     
                 }
                 if(usuario.get(i)instanceof Usuario_Candidato){
+=======
+                    mi_login.setEnabled(false);
+>>>>>>> 924b35d6ceb4f3b2a3d642df3fc19398a7d98880
                     
                           tf_nombre_c3.setText(usuario.get(i).getNombre());
                     tf_usuario_c3.setText(usuario.get(i).getNombre_usuario());
@@ -1314,13 +1318,12 @@ public class principal_proyectolab extends javax.swing.JFrame {
                     tf_usuario.setText("");
                     tf_contraseña.setText("");
                     login.setVisible(false);
-                    for (int j = 0; j < usuario_comun_actual.getCandidatos_seguir().size(); j++) {
-                        System.out.println(usuario_comun_actual.getCandidatos_seguir().get(i).getPublicaciones());
-                    }
+                    
                     
                     usuario_candidato_actual=(Usuario_Candidato)usuario.get(i);
                     m_usuario_candidato.setEnabled(true);
                     mi_logout.setEnabled(true);
+                     mi_login.setEnabled(false);
                     
                     tf_usuario.setText("");
                     tf_contraseña.setText("");
@@ -1340,6 +1343,8 @@ public class principal_proyectolab extends javax.swing.JFrame {
         // TODO add your handling code here:
         m_usuario_candidato.setEnabled(false);
         m_usuario_comun.setEnabled(false);
+        mi_login.setEnabled(true);
+        mi_logout.setEnabled(false);
         
         
         tf_nombre1.setText("");
