@@ -31,6 +31,14 @@ public class Usuario_comun extends Usuario {
         this.name2 = name2;
     }
 
+    public void setCandidatos_seguir2(ArrayList<Usuario_Candidato> candidatos_seguir) {
+        this.candidatos_seguir = candidatos_seguir;
+    }
+
+    public void setAmigos2(ArrayList<Usuario_comun> amigos) {
+        this.amigos = amigos;
+    }
+
     
 
     public String getName2() {

@@ -42,6 +42,10 @@ private String texto_publicacion="";
         this.publicaciones.add(publicaciones);
     }
 
+    
+
+    
+
     public ArrayList<Seguidores> getSeguidores() {
         return seguidores;
     }
