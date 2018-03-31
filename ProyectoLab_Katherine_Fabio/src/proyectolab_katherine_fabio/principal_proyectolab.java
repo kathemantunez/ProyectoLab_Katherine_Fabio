@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
@@ -125,7 +126,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
         publicaciones = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         ta_publicaciones = new javax.swing.JTextArea();
-        cb_publicaciones = new javax.swing.JComboBox<>();
+        cb_candidatos_publicaciones = new javax.swing.JComboBox<>();
         messenger = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -135,11 +136,12 @@ public class principal_proyectolab extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         ta_mensajes1 = new javax.swing.JTextArea();
         actas = new javax.swing.JPanel();
+        cargra_acta = new javax.swing.JButton();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        ta_acta = new javax.swing.JTextArea();
         jLabel42 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        tf_votos = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
         login = new javax.swing.JDialog();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -167,7 +169,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
         tf_correo_c3 = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         js_fecha_c3 = new javax.swing.JSpinner();
-        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
@@ -703,9 +705,9 @@ public class principal_proyectolab extends javax.swing.JFrame {
         ta_publicaciones.setRows(5);
         jScrollPane6.setViewportView(ta_publicaciones);
 
-        cb_publicaciones.addItemListener(new java.awt.event.ItemListener() {
+        cb_candidatos_publicaciones.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cb_publicacionesItemStateChanged(evt);
+                cb_candidatos_publicacionesItemStateChanged(evt);
             }
         });
 
@@ -717,14 +719,14 @@ public class principal_proyectolab extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(publicacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb_publicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cb_candidatos_publicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
         publicacionesLayout.setVerticalGroup(
             publicacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, publicacionesLayout.createSequentialGroup()
                 .addContainerGap(63, Short.MAX_VALUE)
-                .addComponent(cb_publicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_candidatos_publicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
@@ -804,48 +806,61 @@ public class principal_proyectolab extends javax.swing.JFrame {
 
         tab.addTab("Messenger", messenger);
 
-        jLabel42.setText("Seleccione Acta");
+        cargra_acta.setText("Cargar Acta");
+        cargra_acta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cargra_actaMouseClicked(evt);
+            }
+        });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ta_acta.setColumns(20);
+        ta_acta.setRows(5);
+        jScrollPane9.setViewportView(ta_acta);
 
-        jLabel43.setText("Departamento");
+        jLabel42.setText("Numero de votos de esta acta:");
 
-        jLabel44.setText("Numero de acta");
-
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
+        jButton4.setText("Asignar votos");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout actasLayout = new javax.swing.GroupLayout(actas);
         actas.setLayout(actasLayout);
         actasLayout.setHorizontalGroup(
             actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(actasLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
                 .addGroup(actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel42)
                     .addGroup(actasLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
                         .addGroup(actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel43))
-                        .addGap(118, 118, 118)
-                        .addGroup(actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSpinner1))))
-                .addContainerGap(374, Short.MAX_VALUE))
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cargra_acta)))
+                    .addGroup(actasLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4)
+                            .addGroup(actasLayout.createSequentialGroup()
+                                .addComponent(jLabel42)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_votos, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         actasLayout.setVerticalGroup(
             actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(actasLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel42)
-                .addGap(11, 11, 11)
+                .addGap(33, 33, 33)
+                .addComponent(cargra_acta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
                 .addGroup(actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel43)
-                    .addComponent(jLabel44))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(actasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(537, Short.MAX_VALUE))
+                    .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_votos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addComponent(jButton4)
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         tab.addTab("Actas", actas);
@@ -972,8 +987,8 @@ public class principal_proyectolab extends javax.swing.JFrame {
         js_fecha_c3.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(915227160000L), null, new java.util.Date(946763160000L), java.util.Calendar.DAY_OF_YEAR));
         jPanel8.add(js_fecha_c3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, -1, -1));
 
-        jButton6.setText("MODIFICAR");
-        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 100, 70));
+        jButton7.setText("MODIFICAR");
+        jPanel8.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 100, 70));
 
         jTabbedPane2.addTab("Ver mi perfil", jPanel8);
 
@@ -1184,11 +1199,11 @@ public class principal_proyectolab extends javax.swing.JFrame {
 
             
              
-        Usuario_Candidato p =new Usuario_Candidato(nombre, usuario, contraseña, fecha, correo, sexo, nombre);
+        Usuario_Candidato p1 =new Usuario_Candidato(nombre, usuario, contraseña, fecha, correo, sexo, nombre);
         
         admin_u_candidato ap=new admin_u_candidato("./Usuario_Candidato.cbm");
         ap.cargarArchivo();
-        ap.setU_candidato(p);
+        ap.setU_candidato(p1);
         ap.escribirArchivo();
         
         
@@ -1254,7 +1269,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
         String contraseña_c1=tf_contraseña_c1.getText();
         
         Date fecha=(Date) js_fecha_c1.getValue();
-        String correo=tf_correo_c1.getText();
+        String correo1=tf_correo_c1.getText();
         String sexo;
         if(rb_femenino_c1.isSelected()){
             sexo="femenino";
@@ -1262,16 +1277,16 @@ public class principal_proyectolab extends javax.swing.JFrame {
            sexo="masculino";
         }
         usuario.add(new Usuario_comun(direccion, fichero, nombre,
-                usuario_c1, contraseña_c1, fecha, correo, sexo, nombre));
+                usuario_c1, contraseña_c1, fecha, correo1, sexo, nombre));
         
         
         
-        Usuario_comun p =new Usuario_comun(direccion, fichero, nombre,
-                usuario_c1, contraseña_c1, fecha, correo, sexo, nombre);
+        Usuario_comun p2 =new Usuario_comun(direccion, fichero, nombre,
+                usuario_c1, contraseña_c1, fecha, correo1, sexo, nombre);
 //        
         admin_u_comun ap=new admin_u_comun("./Usuario_Comun.cbm");
         ap.cargarArchivo();
-        ap.setU_comun(p);
+        ap.setU_comun(p2);
         ap.escribirArchivo();
         
         
@@ -1338,15 +1353,16 @@ public class principal_proyectolab extends javax.swing.JFrame {
                     usuario_comun_actual=(Usuario_comun)usuario.get(i);
                     m_usuario_comun.setEnabled(true);
                     mi_logout.setEnabled(true);
-<<<<<<< HEAD
+                    login.setVisible(false);
+
          
              
                     
                 }
                 if(usuario.get(i)instanceof Usuario_Candidato){
-=======
+
                     mi_login.setEnabled(false);
->>>>>>> 924b35d6ceb4f3b2a3d642df3fc19398a7d98880
+
                     
                           tf_nombre_c3.setText(usuario.get(i).getNombre());
                     tf_usuario_c3.setText(usuario.get(i).getNombre_usuario());
@@ -1513,8 +1529,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
             DefaultComboBoxModel modelo=new DefaultComboBoxModel(
                     ap.getLista_candidatos().toArray());//toArray convierte de array a arreglo
             cb_candidatos.setModel(modelo);
-            System.out.println("amigos"+usuario_comun_actual.getAmigos());
-         System.out.println("candidatos"+usuario_comun_actual.getCandidatos_seguir());
+          
             
         }
         if(tab.getSelectedIndex()==1){
@@ -1538,7 +1553,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         DefaultListModel modelo_lista_seguidores=(DefaultListModel)jl_candidatos2.getModel();
-        DefaultComboBoxModel modelo_c=(DefaultComboBoxModel)cb_publicaciones.getModel();
+        DefaultComboBoxModel modelo_c=(DefaultComboBoxModel)cb_candidatos_publicaciones.getModel();
          if(evt.getStateChange()==1){
             Usuario_Candidato temp=(Usuario_Candidato)cb_candidatos.getSelectedItem();
             if(temp !=null){
@@ -1560,7 +1575,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
                 modelo_c.addElement(temp);
                 
                 jl_candidatos2.setModel(modelo_lista_seguidores);
-                cb_publicaciones.setModel(modelo_c);
+                cb_candidatos_publicaciones.setModel(modelo_c);
                 
                 
                 
@@ -1643,9 +1658,10 @@ public class principal_proyectolab extends javax.swing.JFrame {
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
       
-        p =new Publicaciones(area_publicacion.getText(),usuario_candidato_actual.getName());
-       
-        usuario_candidato_actual.setPublicaciones(p);
+//        p =new Publicaciones(area_publicacion.getText(),usuario_candidato_actual.getName());
+//       
+//        usuario_candidato_actual.setPublicaciones(p);
+ publicacion.add(new Publicaciones(area_publicacion.getText(),usuario_candidato_actual.getName()));
           JOptionPane.showMessageDialog(menu_usuarioCandidato, "Publicacion Realizada");
           
        area_publicacion.setText("");
@@ -1705,21 +1721,89 @@ public class principal_proyectolab extends javax.swing.JFrame {
         ta_mensajes1.setText(cadena);
     }//GEN-LAST:event_jButton6MouseClicked
 
-    private void cb_publicacionesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_publicacionesItemStateChanged
+    private void cb_candidatos_publicacionesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_candidatos_publicacionesItemStateChanged
         // TODO add your handling code here:
         
           if(evt.getStateChange()==1){
               String publi="";
             Usuario_Candidato temp=(Usuario_Candidato)cb_candidatos.getSelectedItem();
             if(temp !=null){
-                for (int i = 0; i < temp.getPublicaciones().size(); i++) {
-                    publi+=temp.getPublicaciones().get(i)+"\n";
+                for (int i = 0; i < publicacion.size(); i++) {
+                   if(publicacion.get(i).getNombre_candidato().equals(temp.getName())){
+                       publi+=publicacion.get(i)+"\n";
+                   }
+                   
+                  
                 }
+                ta_publicaciones.setText(publi);
+                
             }
-                            ta_publicaciones.setText(publi);
+                            
           }
         
-    }//GEN-LAST:event_cb_publicacionesItemStateChanged
+    }//GEN-LAST:event_cb_candidatos_publicacionesItemStateChanged
+
+    private void cargra_actaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cargra_actaMouseClicked
+        // TODO add your handling code here:
+        Scanner sc=null;
+      
+        File fichero=null;
+        FileReader fr=null;
+        BufferedReader br=null;
+        ta_acta.setText("");
+        try {
+            JFileChooser jfc=new JFileChooser("./actas");
+            //JFileChooser jfc=new JFileChooser("./");//Desde el directorio del proyecto
+            FileNameExtensionFilter filtro= new FileNameExtensionFilter("Archivos de texto","txt");
+
+            jfc.setFileFilter(filtro);
+
+            //----------------------
+            int seleccion=jfc.showOpenDialog(this);//Abrir archivo
+           if(seleccion==JFileChooser.APPROVE_OPTION){
+                fichero=jfc.getSelectedFile();
+                ruta=jfc.getSelectedFile();
+                fr=new FileReader(fichero);
+                
+                br=new BufferedReader(fr);
+                
+                ta_acta.setText("");
+                while((linea=br.readLine())!= null){
+                 
+                    ta_acta.append(linea+"\n");
+                    ta_acta.append("\n");
+                }
+           }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            br.close();
+            fr.close();
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_cargra_actaMouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        if(ta_acta.getText()!=null){
+            if(tf_votos.getText()!=null){
+                
+            
+            actas ac=new actas(linea,Integer.parseInt(tf_votos.getText()),ruta);
+            
+            
+            admin_actas ad=new admin_actas("./actas_votos.cbm");
+            ad.cargarArchivo();
+            ad.set_acta(ac);
+            ad.escribirArchivo();
+            JOptionPane.showMessageDialog(menu_Usuario_Comun, "se agregaron los votos al acta");
+            ta_acta.setText("");
+            tf_votos.setText("");
+        }
+        }
+        
+    }//GEN-LAST:event_jButton4MouseClicked
 
 
     /**
@@ -1767,10 +1851,11 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JButton bt_modificar;
     private javax.swing.JButton bt_verdatos_perfil;
     private javax.swing.JPanel candidatos;
+    private javax.swing.JButton cargra_acta;
     private javax.swing.JComboBox<String> cb_amigos;
     private javax.swing.JComboBox<String> cb_amigos_mensaje;
     private javax.swing.JComboBox<String> cb_candidatos;
-    private javax.swing.JComboBox<String> cb_publicaciones;
+    private javax.swing.JComboBox<String> cb_candidatos_publicaciones;
     private javax.swing.JButton dejar_seguir;
     private javax.swing.JButton enviar_mensaje;
     private javax.swing.JLabel imagen_principal;
@@ -1778,9 +1863,10 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1818,8 +1904,6 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1842,7 +1926,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JDialog jd_UsuarioCandidato;
     private javax.swing.JDialog jd_UsuarioComun;
@@ -1870,6 +1954,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb_masculino_c2;
     private javax.swing.JRadioButton rb_masculino_c3;
     private javax.swing.ButtonGroup sexo2;
+    private javax.swing.JTextArea ta_acta;
     private javax.swing.JTextArea ta_archivo_1;
     private javax.swing.JTextArea ta_archivo_c1;
     private javax.swing.JTextField ta_mensaje;
@@ -1899,6 +1984,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
     private javax.swing.JTextField tf_usuario_c1;
     private javax.swing.JTextField tf_usuario_c2;
     private javax.swing.JTextField tf_usuario_c3;
+    private javax.swing.JTextField tf_votos;
     private javax.swing.JPanel usuarios;
     // End of variables declaration//GEN-END:variables
 ArrayList<Usuario> usuario=new ArrayList();
@@ -1908,13 +1994,13 @@ Usuario_Candidato usuario_candidato_actual;
  
  
  ArrayList<Publicaciones> publicacion = new ArrayList();
-  Publicaciones p ;
+//  Publicaciones p ;
  
 String usuario1="";
  mensajes correo = new mensajes();
   
-    
-
+   File ruta;
+String linea;
 
 String informacion_temporal_usuario="";
 String informacion_temporal_nombre="";
