@@ -18,9 +18,12 @@ public class Usuario_comun extends Usuario {
     private String direccion;
     private ArrayList<mensajes> mensajes_enviados=new ArrayList();
      private ArrayList<mensajes> mensajes_recibidos=new ArrayList();
+     
     private ArrayList<Usuario_Candidato> candidatos_seguir=new ArrayList();
     private File Archivo;//cambiar
+    
     private ArrayList<Usuario_comun> amigos=new ArrayList();
+    
     private String name2;
     
 

@@ -563,6 +563,9 @@ public class principal_proyectolab extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton4MouseEntered(evt);
+            }
         });
         actas.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 440, -1, -1));
 
@@ -693,7 +696,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel34.setText("Mis Votos");
-        jPanel9.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 63, -1, -1));
+        jPanel9.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
 
         jProgressBar1.setMaximum(180000);
         jProgressBar1.setStringPainted(true);
@@ -1199,9 +1202,11 @@ public class principal_proyectolab extends javax.swing.JFrame {
 
     private void cb_candidatosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_candidatosItemStateChanged
         // TODO add your handling code here:
-        
+       
         DefaultListModel modelo_lista_seguidores=(DefaultListModel)jl_candidatos2.getModel();
+        
         DefaultComboBoxModel modelo_c=(DefaultComboBoxModel)cb_candidatos_publicaciones.getModel();
+        
          if(evt.getStateChange()==1){
             Usuario_Candidato temp=(Usuario_Candidato)cb_candidatos.getSelectedItem();
             if(temp !=null){
@@ -1212,6 +1217,7 @@ public class principal_proyectolab extends javax.swing.JFrame {
                     if(ap.getLista_comun().get(i).equals(usuario_comun_actual)){
                         ap.getLista_comun().get(i).setCandidatos_seguir(temp);
                         
+                        
                     }
                 }
                 ap.escribirArchivo();
@@ -1219,6 +1225,11 @@ public class principal_proyectolab extends javax.swing.JFrame {
                 
                 
                 usuario_comun_actual.setCandidatos_seguir(temp);
+                
+                System.out.println(usuario_comun_actual.getCandidatos_seguir());
+                
+                
+              
                 modelo_lista_seguidores.addElement(temp);
                 modelo_c.addElement(temp);
                 
@@ -1309,12 +1320,12 @@ public class principal_proyectolab extends javax.swing.JFrame {
 //        p =new Publicaciones(area_publicacion.getText(),usuario_candidato_actual.getName());
 //       
 //        usuario_candidato_actual.setPublicaciones(p);
- publicacion.add(new Publicaciones(area_publicacion.getText(),usuario_candidato_actual));
+ publicacion.add(new Publicaciones(area_publicacion.getText(),usuario_candidato_actual.getName()));
           JOptionPane.showMessageDialog(menu_usuarioCandidato, "Publicacion Realizada");
           
-       area_publicacion.setText("");
        
-        Publicaciones p2 =new Publicaciones(area_publicacion.getText(), usuario_candidato_actual);
+       
+        Publicaciones p2 =new Publicaciones(area_publicacion.getText(), usuario_candidato_actual.getName());
 //        
         admin_publicaciones ap=new admin_publicaciones("./publicaciones.cbm");
         ap.cargarArchivo();
@@ -1322,7 +1333,11 @@ public class principal_proyectolab extends javax.swing.JFrame {
         ap.escribirArchivo();
        
 //     
+        System.out.println(ap.getLista_publicaciones());
+        System.out.println(area_publicacion.getText());
         
+        
+        area_publicacion.setText("");
 //        publicacion.add(new Publicaciones(area_publicacion.getText()));
 //      JOptionPane.showMessageDialog(menu_usuarioCandidato, "Publicacion Realizada");
     }//GEN-LAST:event_jButton5MouseClicked
@@ -1383,14 +1398,28 @@ public class principal_proyectolab extends javax.swing.JFrame {
           if(evt.getStateChange()==1){
               String publi="";
             Usuario_Candidato temp=(Usuario_Candidato)cb_candidatos_publicaciones.getSelectedItem();
+            String nombre=cb_candidatos_publicaciones.getSelectedItem().toString();
             if(temp !=null){
-                for (int i = 0; i < publicacion.size(); i++) {
-                   if(publicacion.get(i).getNombre_candidato().equals(temp)){
-                       publi+=publicacion.get(i)+"\n";
-                   }
-                   
-                  
+                for (int i = 0; i < ap.getLista_publicaciones().size(); i++) {
+                    if(ap.getLista_publicaciones().get(i).getNombre_Candidato().equals(nombre)){
+                     
+                        publi+=ap.getLista_publicaciones().get(i)+"\n";
+                    }
                 }
+//                for (int j = 0; j < usuario_comun_actual.getCandidatos_seguir().size(); j++) {
+//                    
+//                
+//                for (int i = 0; i < ap.getLista_publicaciones().size(); i++) {
+//                    
+//                   if(ap.getLista_publicaciones().get(i).getNombre_candidato().equals(usuario_comun_actual.getCandidatos_seguir().get(j))){
+//                       if(usuario_comun_actual.getCandidatos_seguir().get(j).getName().equals(nombre)){
+//                              publi+=ap.getLista_publicaciones().get(i)+"\n";
+//                       }
+//                   }
+//                   
+//                  
+//                }
+//                }
                 ta_publicaciones.setText(publi);
 //                 for (int i = 0; i < ap.getLista_publicaciones().size(); i++) {
 //                    if(ap.getLista_publicaciones().get(i).getNombre_candidato().equals(temp)){
@@ -1407,6 +1436,9 @@ public class principal_proyectolab extends javax.swing.JFrame {
 
     private void cargra_actaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cargra_actaMouseClicked
         // TODO add your handling code here:
+        
+        String contenido_acta="";
+        String contenido2="";
         Scanner sc=null;
       
         File fichero=null;
@@ -1431,9 +1463,9 @@ public class principal_proyectolab extends javax.swing.JFrame {
                 
                 ta_acta.setText("");
                 while((linea=br.readLine())!= null){
-                 
-                    ta_acta.append(linea+"\n");
-                    ta_acta.append("\n");
+                    contenido_acta=linea;
+//                    ta_acta.append(linea+"\n");
+//                    ta_acta.append("\n");
                 }
            }
         } catch (Exception e) {
@@ -1444,6 +1476,21 @@ public class principal_proyectolab extends javax.swing.JFrame {
             fr.close();
         } catch (Exception e) {
         }
+        
+        
+        
+        sc=new Scanner(contenido_acta);
+            sc.useDelimiter(";");
+            while(sc.hasNext()){
+                contenido2+=sc.next()+"\n";
+                
+                
+            }
+            
+        
+        ta_acta.setText(contenido2);
+        
+        
     }//GEN-LAST:event_cargra_actaMouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
@@ -1466,6 +1513,10 @@ public class principal_proyectolab extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MouseEntered
 
 
     /**
